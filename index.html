@@ -4,82 +4,113 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adesuwa Omoruyi</title>
-  <meta name="description" content="Adesuwa Omoruyi: co-founder at Accrue. Work, writing and reading.">
+  <meta name="description" content="Adesuwa Omoruyi: co-founder & CMO at Accrue. Essays, books and the work of moving money across Africa.">
+  <meta property="og:title" content="Adesuwa Omoruyi">
+  <meta property="og:description" content="Co-founder & CMO at Accrue. Essays, books and the work of moving money across Africa.">
+  <link rel="alternate" type="application/rss+xml" title="Adesuwa Omoruyi" href="blog/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
   <header class="nav">
-    <a class="brand" href="#top" id="brand"></a>
+    <a class="folio" href="#top"><span>Adesuwa Omoruyi</span><i id="issue"></i></a>
     <nav>
       <a href="#about">About</a>
-      <a href="#work">Work</a>
+      <a href="#work">Accrue</a>
       <a href="#reading">Reading</a>
       <a href="blog/index.html">Writing</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="pill">Say hi</a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero">
-      <div class="hero-copy">
-        <p class="eyebrow">Hello, I'm</p>
-        <h1 id="hero-name"></h1>
-        <p class="lede" id="hero-tagline"></p>
-        <p class="intro" id="hero-intro"></p>
-        <div class="actions">
-          <a class="button" href="#work">See my work</a>
-          <a class="button ghost" href="blog/index.html">Read my writing</a>
-        </div>
+    <!-- COVER -->
+    <section class="cover">
+      <div class="cover-photo" id="cover-photo"></div>
+      <svg class="badge" viewBox="0 0 200 200" aria-label="Forbes Africa 30 Under 30, 2026">
+        <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
+        <circle cx="100" cy="100" r="98" fill="var(--red)"/>
+        <g class="ring"><text><textPath href="#ring" id="badge-text"></textPath></text></g>
+        <text x="100" y="124" text-anchor="middle" class="badge-star">&#10042;</text>
+      </svg>
+      <div class="cover-copy">
+        <p class="kicker" id="cover-kicker">The founder issue</p>
+        <p class="tagline" id="hero-tagline"></p>
+        <ul class="cover-lines" id="cover-lines"></ul>
       </div>
-      <figure class="photo portrait" id="portrait"></figure>
+      <h1 class="masthead" aria-label="Adesuwa">Adesuwa<span>.</span></h1>
     </section>
 
-    <section class="strip" aria-label="Photos">
-      <div class="gallery" id="gallery"></div>
+    <!-- TICKER -->
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+
+    <!-- QUOTE -->
+    <section class="quote paper" id="quote">
+      <p class="label">In my words</p>
+      <blockquote><p id="quote-text"></p></blockquote>
+      <p class="cite"><a id="quote-from" href="#"></a></p>
+      <div class="quote-dots" id="quote-dots" role="tablist" aria-label="Choose a quote"></div>
     </section>
 
-    <section id="about" class="narrow">
-      <h2>About</h2>
-      <div id="about-body" class="prose"></div>
-    </section>
-
-    <section id="work">
-      <h2>Work</h2>
-      <article class="role now" id="now"></article>
-      <div id="before-wrap">
-        <h3 class="sub">Before</h3>
-        <ol class="timeline" id="before"></ol>
+    <!-- ABOUT -->
+    <section id="about" class="about paper2">
+      <figure class="about-photo reveal" id="about-photo"></figure>
+      <div class="about-copy reveal">
+        <p class="label">About</p>
+        <h2 id="about-title">A little about me.</h2>
+        <div class="dropcap" id="about-body"></div>
+        <dl class="facts" id="facts"></dl>
       </div>
     </section>
 
-    <section id="reading">
-      <h2>Reading</h2>
-      <div id="reading-now-wrap">
-        <h3 class="sub">Reading now</h3>
-        <div class="books" id="reading-now"></div>
-      </div>
-      <h3 class="sub">Read this year <span class="count" id="read-count"></span></h3>
-      <div class="books" id="read"></div>
+    <!-- WORK -->
+    <section id="work" class="work dark">
+      <p class="label">Accrue</p>
+      <h2 class="big">What I do <em>at Accrue.</em></h2>
+      <p class="role-line" id="role-line"></p>
+      <p class="work-summary" id="work-summary"></p>
+      <div class="stats" id="stats"></div>
+      <ol class="highlights" id="highlights"></ol>
+      <div id="before-wrap" class="before"><p class="label">Before</p><ul id="before"></ul></div>
     </section>
 
-    <section id="writing" class="narrow">
-      <h2>Latest writing</h2>
+    <!-- CONTACT SHEET -->
+    <section class="sheet dark" aria-label="Photos">
+      <p class="label">Contact sheet</p>
+      <div class="frames" id="frames"></div>
+    </section>
+
+    <!-- READING -->
+    <section id="reading" class="reading dark2">
+      <p class="label">Reading</p>
+      <h2 class="big">Books I read <em>this year.</em> <span class="count" id="read-count"></span></h2>
+      <div class="shelf" id="shelf" role="tablist" aria-label="Books"></div>
+      <div class="shelf-rule"></div>
+      <div class="book-detail" id="book-detail" aria-live="polite"></div>
+    </section>
+
+    <!-- WRITING -->
+    <section id="writing" class="writing paper">
+      <p class="label">Writing</p>
+      <h2 class="big">Latest <em>essays.</em></h2>
       <ul class="articles" id="articles"></ul>
-      <p class="more"><a href="blog/index.html">All writing &rarr;</a></p>
+      <p class="more"><a href="blog/index.html">Read everything &rarr;</a></p>
     </section>
 
-    <section id="contact" class="narrow">
-      <h2>Contact</h2>
-      <p class="prose">The best way to reach me is <a id="email" href="#"></a>.</p>
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <p class="label">Contact</p>
+      <p class="hi">say hi.</p>
+      <a class="mail" id="email" href="#"></a>
       <ul class="links" id="links"></ul>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; <span id="year"></span> <span id="footer-name"></span> &middot; <a href="blog/feed.xml">RSS</a></p>
+  <footer class="foot">
+    <span>&copy; <span id="year"></span> <span id="footer-name"></span></span>
+    <a href="blog/feed.xml">RSS</a>
   </footer>
 
   <script src="content.js"></script>

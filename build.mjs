@@ -62,23 +62,24 @@ function page({ title, description, root, body, canonical }) {
   <link rel="alternate" type="application/rss+xml" title="${esc(SITE_NAME)}" href="${root}blog/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${root}style.css">
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="${root}index.html">Adesuwa</a>
+    <a class="folio" href="${root}index.html"><span>Adesuwa Omoruyi</span></a>
     <nav>
       <a href="${root}index.html#about">About</a>
-      <a href="${root}index.html#work">Work</a>
+      <a href="${root}index.html#work">Accrue</a>
       <a href="${root}index.html#reading">Reading</a>
       <a href="${root}blog/index.html">Writing</a>
-      <a href="${root}index.html#contact">Contact</a>
+      <a href="${root}index.html#contact" class="pill">Say hi</a>
     </nav>
   </header>
 ${body}
-  <footer>
-    <p>&copy; ${new Date().getFullYear()} ${esc(SITE_NAME)} &middot; <a href="${root}blog/feed.xml">RSS</a></p>
+  <footer class="foot">
+    <span>&copy; ${new Date().getFullYear()} ${esc(SITE_NAME)}</span>
+    <a href="${root}blog/feed.xml">RSS</a>
   </footer>
 </body>
 </html>
