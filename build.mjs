@@ -75,6 +75,7 @@ function page({ title, description, root, body, canonical, current }) {
     </nav>
   </header>
 ${body}
+  <script src="${root}track.js" defer></script>
   <footer class="foot">
     <span>&copy; ${new Date().getFullYear()} ${esc(SITE_NAME)}</span>
     <a href="${root}blog/feed.xml">RSS</a>
