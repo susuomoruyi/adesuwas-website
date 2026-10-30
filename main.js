@@ -61,48 +61,47 @@
 
   // ---------------- Reading ----------------
   if (page === "reading") {
-    const SPINES = [
-      { bg: "#c8202f", fg: "#f5f0e8" },
-      { bg: "#5e6b49", fg: "#f5f0e8" },
-      { bg: "#e2b49b", fg: "#1b1917" },
-      { bg: "#2b3a67", fg: "#f5f0e8" },
-      { bg: "#ebe2d3", fg: "#1b1917" },
-      { bg: "#7a2e4d", fg: "#f5f0e8" },
-      { bg: "#c8962f", fg: "#1b1917" },
-      { bg: "#34505f", fg: "#f5f0e8" },
-      { bg: "#3f3a35", fg: "#f5f0e8" },
-    ];
-    const HEIGHTS = [300, 262, 322, 270, 292, 252, 310, 280, 296];
-    const WIDTHS = [64, 54, 74, 58, 68, 52, 62, 72, 60];
-    const spines = [];
+    const FALLBACKS = ["#c8202f", "#2b3a67", "#5e6b49", "#7a2e4d"];
+    const tiles = [];
+    function cover(b, i, cls) {
+      const box = el("div", { class: "cover " + (cls || "") });
+      if (b.cover) {
+        const im = img({ src: b.cover, alt: "Cover of " + b.title + " by " + b.author });
+        im.addEventListener("error", () => { box.textContent = ""; fallback(box, b, i); });
+        box.appendChild(im);
+      } else {
+        fallback(box, b, i);
+      }
+      return box;
+    }
+    function fallback(box, b, i) {
+      box.classList.add("typo");
+      box.style.background = FALLBACKS[i % FALLBACKS.length];
+      box.appendChild(el("span", { class: "typo-title", text: b.title }));
+      box.appendChild(el("span", { class: "typo-author", text: b.author }));
+    }
     function selectBook(i) {
-      spines.forEach((s, j) => s.setAttribute("aria-selected", String(j === i)));
+      tiles.forEach((t, j) => t.setAttribute("aria-selected", String(j === i)));
       const b = S.read[i];
       const d = $("book-detail");
       d.textContent = "";
-      d.appendChild(el("h3", { text: b.title }));
-      d.appendChild(el("p", { class: "by", text: b.author }));
-      if (b.learned) {
-        d.appendChild(el("p", { class: "learned-label", text: "What I learned" }));
-        d.appendChild(el("p", { class: "note", text: b.learned }));
-      } else if (b.note) {
-        d.appendChild(el("p", { class: "note", text: b.note }));
-      }
+      const text = el("div", { class: "book-text" }, [
+        el("h3", { text: b.title }),
+        el("p", { class: "by", text: b.author }),
+        b.learned ? el("p", { class: "learned-label", text: "What I learned" }) : null,
+        b.learned || b.note ? el("p", { class: "note", text: b.learned || b.note }) : null,
+      ]);
+      d.appendChild(cover(b, i, "big"));
+      d.appendChild(text);
     }
     S.read.forEach((b, i) => {
-      const c = SPINES[i % SPINES.length];
-      const s = el(
-        "button",
-        { class: "spine", type: "button", role: "tab", "aria-label": b.title + " by " + b.author },
-        [el("span", { text: b.title }), el("small", { text: b.author.split(" ").pop() })]
-      );
-      s.style.background = c.bg;
-      s.style.color = c.fg;
-      s.style.height = HEIGHTS[i % HEIGHTS.length] + "px";
-      s.style.width = WIDTHS[i % WIDTHS.length] + "px";
-      s.addEventListener("click", () => selectBook(i));
-      spines.push(s);
-      $("shelf").appendChild(s);
+      const t = el("button", { class: "tile", type: "button", role: "tab", "aria-label": b.title + " by " + b.author }, [cover(b, i)]);
+      t.addEventListener("click", () => {
+        selectBook(i);
+        if (window.innerWidth < 800) $("book-detail").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+      tiles.push(t);
+      $("shelf").appendChild(t);
     });
     if (S.read.length) selectBook(0);
   }
