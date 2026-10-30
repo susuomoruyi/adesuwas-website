@@ -67,7 +67,7 @@ function page({ title, description, root, body, canonical, current }) {
 </head>
 <body>
   <header class="bar">
-    <a class="name" href="${root}index.html">Adesuwa Omoruyi</a>
+    <a class="name" href="${root}index.html">Adesuwa<span> Omoruyi</span></a>
     <nav>
       <a href="${root}about/index.html">About</a>
       <a href="${root}blog/index.html"${current ? ' aria-current="page"' : ""}>Writing</a>
