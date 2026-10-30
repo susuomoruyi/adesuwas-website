@@ -48,7 +48,7 @@ const fmtDate = (iso) =>
     year: "numeric", month: "long", day: "numeric", timeZone: "UTC",
   });
 
-function page({ title, description, root, body, canonical }) {
+function page({ title, description, root, body, canonical, current }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -62,18 +62,16 @@ function page({ title, description, root, body, canonical }) {
   <link rel="alternate" type="application/rss+xml" title="${esc(SITE_NAME)}" href="${root}blog/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="${root}style.css">
 </head>
 <body>
-  <header class="nav">
-    <a class="folio" href="${root}index.html"><span>Adesuwa Omoruyi</span></a>
+  <header class="bar">
+    <a class="name" href="${root}index.html">Adesuwa Omoruyi</a>
     <nav>
-      <a href="${root}index.html#about">About</a>
-      <a href="${root}index.html#work">Accrue</a>
-      <a href="${root}index.html#reading">Reading</a>
-      <a href="${root}blog/index.html">Writing</a>
-      <a href="${root}index.html#contact" class="pill">Say hi</a>
+      <a href="${root}about/index.html">About</a>
+      <a href="${root}blog/index.html"${current ? ' aria-current="page"' : ""}>Writing</a>
+      <a href="${root}reading/index.html">Reading</a>
     </nav>
   </header>
 ${body}
@@ -110,7 +108,7 @@ posts.sort((a, b) => b.date.localeCompare(a.date));
 for (const p of posts) {
   const dir = path.join("blog", p.slug);
   await mkdir(dir, { recursive: true });
-  const body = `  <main class="post-wrap">
+  const body = `  <main class="page">
     <p class="back"><a href="../index.html">&larr; All writing</a></p>
     <article class="post">
       <header>
@@ -152,8 +150,9 @@ await writeFile(
     title: `Writing | ${SITE_NAME}`,
     description: BLOG_DESCRIPTION,
     root: "../",
-    body: `  <main class="narrow-page">
-    <h1 class="page-title">Writing</h1>
+    current: true,
+    body: `  <main class="page wide">
+    <h1>Writing</h1>
     <p class="deck">${esc(BLOG_DESCRIPTION)}</p>
     <ul class="articles">
 ${list}

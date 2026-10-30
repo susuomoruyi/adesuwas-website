@@ -4,117 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Adesuwa Omoruyi</title>
-  <meta name="description" content="Adesuwa Omoruyi: co-founder & CMO at Accrue. Essays, books and the work of moving money across Africa.">
+  <meta name="description" content="Adesuwa Omoruyi. Co-founder and CMO at Accrue. Writing, reading and the work of moving money across Africa.">
   <meta property="og:title" content="Adesuwa Omoruyi">
-  <meta property="og:description" content="Co-founder & CMO at Accrue. Essays, books and the work of moving money across Africa.">
+  <meta property="og:description" content="Co-founder and CMO at Accrue. Writing, reading and the work of moving money across Africa.">
   <link rel="alternate" type="application/rss+xml" title="Adesuwa Omoruyi" href="blog/feed.xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Space+Mono&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="home">
-  <header class="nav">
-    <a class="folio" href="#top"><span>Adesuwa Omoruyi</span><i id="issue"></i></a>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#work">Accrue</a>
-      <a href="#reading">Reading</a>
-      <a href="blog/index.html">Writing</a>
-      <a href="#contact" class="pill">Say hi</a>
-    </nav>
-  </header>
-
-  <main id="top">
-    <!-- COVER -->
-    <section class="cover">
-      <div class="cover-photo" id="cover-photo"></div>
-      <svg class="badge" viewBox="0 0 200 200" aria-label="Forbes Africa 30 Under 30, 2026">
-        <defs><path id="ring" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs>
-        <circle cx="100" cy="100" r="98" fill="var(--red)"/>
-        <g class="ring"><text><textPath href="#ring" id="badge-text"></textPath></text></g>
-        <text x="100" y="124" text-anchor="middle" class="badge-star">&#10042;</text>
-      </svg>
-      <div class="cover-copy">
-        <p class="kicker" id="cover-kicker">The founder issue</p>
-        <p class="tagline" id="hero-tagline"></p>
-        <ul class="cover-lines" id="cover-lines"></ul>
-      </div>
-      <h1 class="masthead" aria-label="Adesuwa">Adesuwa<span>.</span></h1>
-    </section>
-
-    <!-- TICKER -->
-    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
-
-    <!-- QUOTE -->
-    <section class="quote paper" id="quote">
-      <p class="label">In my words</p>
-      <blockquote><p id="quote-text"></p></blockquote>
-      <p class="cite"><a id="quote-from" href="#"></a></p>
-      <div class="quote-dots" id="quote-dots" role="tablist" aria-label="Choose a quote"></div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about" class="about paper2">
-      <figure class="about-photo reveal" id="about-photo"></figure>
-      <div class="about-copy reveal">
-        <p class="label">About</p>
-        <h2 id="about-title">A little about me.</h2>
-        <div class="dropcap" id="about-body"></div>
-        <dl class="facts" id="facts"></dl>
-      </div>
-    </section>
-
-    <!-- WORK -->
-    <section id="work" class="work dark">
-      <p class="label">Accrue</p>
-      <h2 class="big">What I do <em>at Accrue.</em></h2>
-      <p class="role-line" id="role-line"></p>
-      <p class="work-summary" id="work-summary"></p>
-      <div class="stats" id="stats"></div>
-      <ol class="highlights" id="highlights"></ol>
-      <div id="before-wrap" class="before"><p class="label">Before</p><ul id="before"></ul></div>
-    </section>
-
-    <!-- CONTACT SHEET -->
-    <section class="sheet dark" aria-label="Photos">
-      <p class="label">Contact sheet</p>
-      <div class="frames" id="frames"></div>
-    </section>
-
-    <!-- READING -->
-    <section id="reading" class="reading dark2">
-      <p class="label">Reading</p>
-      <h2 class="big">Books I read <em>this year.</em> <span class="count" id="read-count"></span></h2>
-      <div class="shelf" id="shelf" role="tablist" aria-label="Books"></div>
-      <div class="shelf-rule"></div>
-      <div class="book-detail" id="book-detail" aria-live="polite"></div>
-    </section>
-
-    <!-- WRITING -->
-    <section id="writing" class="writing paper">
-      <p class="label">Writing</p>
-      <h2 class="big">Latest <em>essays.</em></h2>
-      <ul class="articles" id="articles"></ul>
-      <p class="more"><a href="blog/index.html">Read everything &rarr;</a></p>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="contact">
-      <p class="label">Contact</p>
-      <p class="hi">say hi.</p>
-      <a class="mail" id="email" href="#"></a>
-      <ul class="links" id="links"></ul>
-    </section>
+<body data-page="home">
+  <main class="home">
+    <div class="copy">
+      <h1>Adesuwa<span>.</span></h1>
+      <p class="intro" id="intro"></p>
+      <ul class="menu" id="menu">
+        <li><a href="blog/index.html" data-photo="1">Writing <i>&rarr;</i></a></li>
+        <li><a href="reading/index.html" data-photo="2">Reading <i>&rarr;</i></a></li>
+        <li><a href="about/index.html" data-photo="3">About <i>&rarr;</i></a></li>
+        <li class="quiet"><a id="linkedin" href="#" rel="noopener">LinkedIn &nearr;</a></li>
+        <li class="quiet"><a id="email" href="#">Email</a></li>
+      </ul>
+    </div>
+    <figure class="portrait" id="portrait"></figure>
   </main>
-
-  <footer class="foot">
-    <span>&copy; <span id="year"></span> <span id="footer-name"></span></span>
-    <a href="blog/feed.xml">RSS</a>
-  </footer>
+  <p class="fine">&copy; <span id="year"></span> Adesuwa Omoruyi</p>
 
   <script src="content.js"></script>
-  <script src="blog/posts.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
