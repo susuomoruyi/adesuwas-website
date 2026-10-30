@@ -6,7 +6,7 @@ window.SITE = {
   name: "Adesuwa",
   fullName: "Adesuwa Omoruyi",
   homeIntro:
-    "I lead marketing and growth at Accrue, where we help people move money across Africa in minutes. I write about building a company, and I read, just not enough to be insufferable about it.",
+    "I lead marketing and growth at Accrue, where we help people move money across Africa in minutes. I write about building a company, and I read… just not enough to be insufferable about it.",
   // Home photo: the first is shown; hovering a link swaps through the rest.
   photos: [
     { src: "images/photo-4.jpg", alt: "Portrait of Adesuwa Omoruyi" },
