@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adesuwa Omoruyi</title>
+  <meta name="description" content="Adesuwa Omoruyi: co-founder at Accrue. Work, writing and reading.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top" id="brand"></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#reading">Reading</a>
+      <a href="blog/index.html">Writing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1 id="hero-name"></h1>
+        <p class="lede" id="hero-tagline"></p>
+        <p class="intro" id="hero-intro"></p>
+        <div class="actions">
+          <a class="button" href="#work">See my work</a>
+          <a class="button ghost" href="blog/index.html">Read my writing</a>
+        </div>
+      </div>
+      <figure class="photo portrait" id="portrait"></figure>
+    </section>
+
+    <section class="strip" aria-label="Photos">
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section id="about" class="narrow">
+      <h2>About</h2>
+      <div id="about-body" class="prose"></div>
+    </section>
+
+    <section id="work">
+      <h2>Work</h2>
+      <article class="role now" id="now"></article>
+      <div id="before-wrap">
+        <h3 class="sub">Before</h3>
+        <ol class="timeline" id="before"></ol>
+      </div>
+    </section>
+
+    <section id="reading">
+      <h2>Reading</h2>
+      <div id="reading-now-wrap">
+        <h3 class="sub">Reading now</h3>
+        <div class="books" id="reading-now"></div>
+      </div>
+      <h3 class="sub">Read this year <span class="count" id="read-count"></span></h3>
+      <div class="books" id="read"></div>
+    </section>
+
+    <section id="writing" class="narrow">
+      <h2>Latest writing</h2>
+      <ul class="articles" id="articles"></ul>
+      <p class="more"><a href="blog/index.html">All writing &rarr;</a></p>
+    </section>
+
+    <section id="contact" class="narrow">
+      <h2>Contact</h2>
+      <p class="prose">The best way to reach me is <a id="email" href="#"></a>.</p>
+      <ul class="links" id="links"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> <span id="footer-name"></span> &middot; <a href="blog/feed.xml">RSS</a></p>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="blog/posts.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
